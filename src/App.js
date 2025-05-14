@@ -1,11 +1,22 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Leaderboard from './pages/Leaderboard';
+import LogGame from './pages/LogGame';
+import Profile from './pages/Profile';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to Die Tracker</h1>
-      <p>Track games, stats, and rankings with your fraternity.</p>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/log" element={<LogGame />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </Router>
   );
 }
 
